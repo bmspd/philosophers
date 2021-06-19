@@ -1,4 +1,5 @@
-SRCS	= atoi.c extra_foo.c main.c
+SRCS	= atoi.c extra_foo.c main.c initions.c time.c philo.c \
+			mutex_print.c
 
 OBJS	= $(SRCS:.c=.o)
 

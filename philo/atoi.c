@@ -11,7 +11,7 @@ static int	tabpass(const char *str)
 	return (i);
 }
 
-int	ft_atoi(const char *str)
+uint64_t	ft_atoi(const char *str)
 {
 	int				i;
 	int				sign;
@@ -29,10 +29,10 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if ((nbr > overflow || (nbr == overflow
-								&& str[i] > '7')) && sign == 1)
+					&& str[i] > '7')) && sign == 1)
 			return (-1);
 		else if ((nbr > overflow || (nbr == overflow
-									 && str[i] > '8')) && sign == -1)
+					&& str[i] > '8')) && sign == -1)
 			return (0);
 		nbr = nbr * 10 + (str[i] - 48);
 		i++;

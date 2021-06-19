@@ -7,7 +7,7 @@ static int	ft_isdigit(int c)
 	return (0);
 }
 
-static int check_string(char *string)
+static int	check_string(char *string)
 {
 	int	i;
 
@@ -25,15 +25,15 @@ int	check_args(int argc, char **argv)
 {
 	if (argc == 5)
 	{
-		if(!check_string(argv[1]) || !check_string(argv[2])
-		  ||!check_string(argv[3]) || !(check_string(argv[4])))
+		if (!check_string(argv[1]) || !check_string(argv[2])
+			|| !check_string(argv[3]) || !(check_string(argv[4])))
 			return (0);
 	}
 	else if (argc == 6)
 	{
-		if(!check_string(argv[1]) || !check_string(argv[2])
-		   ||!check_string(argv[3]) || !(check_string(argv[4]))
-		   ||!check_string(argv[5]))
+		if (!check_string(argv[1]) || !check_string(argv[2])
+			||!check_string(argv[3]) || !(check_string(argv[4]))
+			||!check_string(argv[5]))
 			return (0);
 	}
 	return (1);
