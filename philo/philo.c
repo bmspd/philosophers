@@ -51,7 +51,7 @@ void	*death(void *information)
 		{
 			if (get_timems() - info->philosophers[i].starve_start
 				> info->die_time
-				&& info->philosophers[i].starve_start != -1)
+				&& (int) info->philosophers[i].starve_start != -1)
 			{
 				mutex_print(&info->philosophers[i], 'd', get_timems());
 				return (0);
