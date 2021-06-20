@@ -6,7 +6,7 @@ OBJS	= $(SRCS:.c=.o)
 HEADER			= philosopher.h
 CC				= gcc
 RM				= rm -f
-#CFLAGS			= -Wall -Werror -Wextra -I $(HEADER)
+CFLAGS			= -Wall -Werror -Wextra -I $(HEADER)
 CFLAGS			= -I $(HEADER)
 NAME			= philo_bonus
 
