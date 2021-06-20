@@ -11,18 +11,19 @@ static void	eating_part(t_philo *philosopher, uint64_t current_time)
 	if (information->meal_number != -1)
 	{
 		philosopher->eat_times += 1;
-		if (philosopher->eat_times == information->meal_number)
-			information->meal_counter += 1;
+		if (philosopher->eat_times == information->meal_number
+			&& philosopher->id == information->philo_num)
+			exit(0);
 	}
 }
 
-void	mutex_print(t_philo *philosopher, char flag, uint64_t current_time)
+void	sema_print(t_philo *philosopher, char flag, uint64_t current_time)
 {
 	t_info		*information;
 	uint64_t	diff;
 
 	information = philosopher->information;
-	pthread_mutex_lock(&(information->print));
+	sem_wait(information->print);
 	diff = current_time - information->start_time;
 	if (flag == 'f')
 		printf("%lld %d has taken a fork\n", diff, philosopher->id);
@@ -37,5 +38,5 @@ void	mutex_print(t_philo *philosopher, char flag, uint64_t current_time)
 		printf("%lld %d died\n", diff, philosopher->id);
 		return ;
 	}
-	pthread_mutex_unlock(&(information->print));
+	sem_post(information->print);
 }
